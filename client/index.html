@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Wiki visualizer</title>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script type="text/javascript" src="js/vis.min.js"></script>
+    <script type="text/javascript" src="js/Engine.js"></script>
+    <script type="text/javascript" src="js/Network.js"></script>
+    <script type="text/javascript" src="js/DataSource.js"></script>
+    <script type="text/javascript" src="js/Converter.js"></script>
+</head>
+<body onload="new Engine(document.getElementById('networkGraph'));">
+    <div id="visualizer">
+        <h1 class="headLabel">Wiki visualizer</h1>
+        <div class="headSubLabel">(Double click to open URL)</div>
+        <div id="networkGraph">
+
+        </div>
+    </div>
+</body>
+</html>

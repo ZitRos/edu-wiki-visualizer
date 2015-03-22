@@ -1,2 +1,2 @@
-# edu-wiki-visualizer
+# Wiki visualizer
 Network visualization interface for university project.
