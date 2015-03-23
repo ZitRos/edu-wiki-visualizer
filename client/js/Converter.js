@@ -16,6 +16,7 @@ Converter.prototype.parseVis = function (serverData) {
 
     var i,
         theCoolestNode = undefined,
+        connectedNodes = {},
         nodeCoolFactors = {
             "undefined": 0
         };
@@ -26,6 +27,9 @@ Converter.prototype.parseVis = function (serverData) {
     }
 
     for (i in serverData.edges) {
+
+        connectedNodes[serverData.edges[i]["from"]] = null;
+        connectedNodes[serverData.edges[i]["to"]] = null;
 
         // determine the coolest node
         if (!nodeCoolFactors.hasOwnProperty(serverData.edges[i]["from"]))
@@ -49,6 +53,11 @@ Converter.prototype.parseVis = function (serverData) {
     }
 
     serverData.theCoolestNode = theCoolestNode;
+    serverData.numberOfConnectedNodes = (function () {
+        var j, i = 0;
+        for (j in connectedNodes) i++;
+        return i;
+    })();
 
     return serverData;
 

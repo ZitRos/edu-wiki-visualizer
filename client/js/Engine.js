@@ -15,14 +15,16 @@ var Engine = function (container) {
 
 Engine.prototype.init = function () {
 
-    var self = this;
+    var self = this,
+        data, el = document.getElementById("headSubLabel");
 
     this.dataSource.requestData(function (error, serverData) {
 
         if (error) {
             console.error(error);
         } else {
-            self.network.setup(self.converter.parseVis(serverData));
+            self.network.setup(data = self.converter.parseVis(serverData));
+            if (el) el.textContent = "Количествово страниц: " + data.numberOfConnectedNodes;
         }
 
     });
